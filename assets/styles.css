@@ -1,0 +1,25 @@
+#wrap {
+  width: 85vw;
+  max-width: 35rem;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+label,
+input {
+  display: block;
+}
+
+.field {
+  padding: 1.5rem;
+}
+
+.field:last-child {
+  margin-left: auto;
+}

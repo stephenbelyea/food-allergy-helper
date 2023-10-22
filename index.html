@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Lookup</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div id="wrap">
+      <h1>Food Lookup</h1>
+      <p>
+        Search for a food product by the package's barcode number to find out if
+        it contains any allergens.
+      </p>
+      <form id="search">
+        <div class="field">
+          <button type="button" id="reader">Read barcode</button>
+        </div>
+        <span> OR </span>
+        <div class="field">
+          <label for="barcode">Enter the number</label>
+          <input
+            autofocus
+            type="search"
+            value="0068000792820"
+            id="barcode"
+            required
+          />
+        </div>
+        <div class="field">
+          <button type="submit" id="submit">Search</button>
+        </div>
+      </form>
+      <div id="camera"></div>
+      <div id="output"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.min.js"></script>
+    <script src="./scripts/reader.js"></script>
+    <script src="./scripts/search.js"></script>
+  </body>
+</html>
