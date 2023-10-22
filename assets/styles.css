@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 #wrap {
   width: 85vw;
   max-width: 35rem;
@@ -22,4 +26,33 @@ input {
 
 .field:last-child {
   margin-left: auto;
+}
+
+#camera {
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  position: relative;
+  overflow: hidden;
+}
+
+#camera video {
+  position: absolute;
+  width: 160%;
+  top: -30%;
+  left: -30%;
+  z-index: 1;
+}
+
+#camera:after {
+  content: "";
+  width: 50%;
+  height: 50%;
+  display: block;
+  left: 25%;
+  top: 25%;
+  border: dashed 3px rgba(255, 255, 255, 0.35);
+  border-radius: 5px;
+  position: absolute;
+  z-index: 2;
 }
