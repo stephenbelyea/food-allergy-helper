@@ -22,7 +22,9 @@ const setRequestInProgress = (isInProgress = false) => {
 
 const composeProductDescription = (product) => {
   const { brands, product_name, ingredients_text, allergens } = product;
-  const description = [`<h2>Found: ${brands} - ${product_name}</h2>`];
+  const description = [
+    `<h2>Found: ${brands ? brands + " - " : ""}${product_name}</h2>`,
+  ];
 
   if (allergens) {
     description.push(`<h3>Contains allergens:</h3><ul>`);
@@ -44,12 +46,14 @@ const composeProductDescription = (product) => {
 
 const displayProductFound = ({ status, product }) => {
   if (status !== 1 || !product) {
+    Quagga.start();
     return outputDiv.insertAdjacentHTML(
       "afterbegin",
       `<h2>Could not find product.</h2>`
     );
   }
 
+  stopReader();
   outputDiv.insertAdjacentHTML(
     "afterbegin",
     composeProductDescription(product)
@@ -68,6 +72,7 @@ const requestProduct = async (query = "") => {
   } catch (error) {
     setRequestInProgress();
     setInputInvalid(true);
+    Quagga.start();
   }
 };
 
