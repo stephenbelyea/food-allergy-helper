@@ -17,6 +17,8 @@ const config = {
   },
 };
 
+const attemptedCodes = [];
+
 const initReader = () => {
   Quagga.init(config, startReader);
 };
@@ -37,7 +39,14 @@ const stopReader = () => {
 const detectReader = (detectData) => {
   console.log("Result:", detectData);
   for (let i = 0; i < detectData.length; i++) {
-    console.log(detectData[i]?.codeResult?.code);
+    const code = detectData[i]?.codeResult?.code;
+    if (!attemptedCodes.includes(code)) {
+      console.log("Submitting");
+      Quagga.stop();
+      attemptedCodes.push(code);
+      barcodeInput.value = code;
+      submitSearchForm();
+    }
   }
 };
 
